@@ -254,9 +254,12 @@ set smarttab
 "]]      将光标移到后一个文件的起点
 "q      退出tagbar g窗口
 """""""""""""""""""""""""""
-nmap <silent> <F8> :TagbarToggle<CR>
+""if you want to open it only if you're opening Vim with a supported file/files
+autocmd VimEnter * nested :call tagbar#autoopen(1)
+nmap <silent> <F7> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = '/usr/bin/ctags'
 let g:tagbar_width = 30
+let g:tagbar_left = 1
 """""""""""""""""""""""""""
 "for ctags & cscope
 "0 或 s 查找本 C 符号(可以跳过注释)
@@ -357,12 +360,13 @@ let g:SuperTabDefaultCompletionType="context"
 "-----------------------------------------------------------------
 " F7 NERDTree 切换
 ""map <F7> :Sexplore!<CR>
-map <F7> :NERDTreeToggle<CR>
-imap <F7> <ESC> :Sexplore!<CR>
+map <F8> :NERDTreeToggle<CR>
+imap <F8> <ESC> :Sexplore!<CR>
 let NERDChristmasTree=1     "另树状结构好看
 let NERDTreeShowBookmarks=1 "默认显示书签列表
 let NERDTreeShowFiles=1     "默认显示文件
 let NERDTreeShowHidden=1    "默认显示隐藏文件
+let NERDTreeWinPos="right"
 """"""""""""""""""""""""""""""
 " netrw setting
 " """"""""""""""""""""""""""""""
