@@ -3,13 +3,9 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " imap只在insert模式中生效，c-d 表示ctrl+d，ese使其退出到normal模式，
 " ddi表示删除一行后又回到insert模式
-let mapleader=","
 inoremap <c-d> <esc>ddi
 "press space选中单词
 nnoremap <leader><space> *
-"open my vimrc file in a new split
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 "why don't work
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
@@ -29,6 +25,7 @@ onoremap ihh :<c-u>execute "normal! ?^--\\+$\r:nohlsearch\rkvg_"<cr>
 
 iabbrev @@ amanachen@tencent.com
 " Vimscript file settings ---------------------- {{{
+"为vim脚本设置自动折叠选项
  augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
@@ -50,37 +47,11 @@ augroup filetype_cpp
 	autocmd FileType cpp :iabbrev <buffer> foor for ()<left>
 augroup EMD
  " }}}
-" basic settings ---------------------- {{{
- " }}}
-" filetype specific settings ---------------------- {{{
- " }}}
-" mappings settings ---------------------- {{{
- " }}}
-" status line settings ---------------------- {{{
- " }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
-" 一般设定 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-set t_Co=256
-""colorscheme vimbrant
-colorscheme zenburn
-"minibuf配置
-"let g:miniBufExplMapWindowNavVim = 1 
-"let g:miniBufExplMapWindowNavArrows = 1 
-"let g:miniBufExplMapCTabSwitchBufs = 1 
-"let g:miniBufExplModSelTarget = 1 
-"
-"保存折叠信息和当前view的其它一些变量值
-"au BufWinLeave * silent mkview
-"au BufWinEnter * silent loadview
-" 设定默认解码 
-set fenc=utf-8 
-set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936 
 
 " 不要使用vi的键盘模式，而是vim自己的 
 set nocompatible 
-
 
 " history文件中需要记录的行数 
 set history=100 
@@ -91,59 +62,29 @@ set confirm
 " 与windows共享剪贴板 
 set clipboard+=unnamed 
 set nocp
-""call pathogen#runtime_append_all_bundles()
-""call pathogen#infect() 
-
-"colorscheme"
-
-" 侦测文件类型 
-filetype on 
-
-" 载入文件类型插件 
-filetype plugin on 
-
-" 为特定文件类型载入相关缩进文件 
-filetype indent on 
 
 " 保存全局变量 
 set viminfo+=! 
-
-" 带有如下符号的单词不要被换行分割 
-set iskeyword+=_,$,@,%,#,- 
-
-" 语法高亮 
-syntax on 
-
-" 显示相对行号,方便通过j、k定位
-set rnu
 
 " 高亮字符，让其不受100列限制 
 :highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white 
 :match OverLength '\%101v.*' 
 
-" 状态行颜色 
-highlight StatusLine guifg=SlateBlue guibg=Yellow 
-highlight StatusLineNC guifg=Gray guibg=White 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " 文件设置 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " 不要备份文件（根据自己需要取舍） 
-set nobackup 
+""set nobackup 
 
 " 不要生成swap文件，当buffer被丢弃的时候隐藏它 
-setlocal noswapfile 
-set bufhidden=hide 
+"setlocal noswapfile 
+"set bufhidden=hide 
 
 " 字符间插入的像素行数目 
 set linespace=0 
 
 " 增强模式中的命令行自动完成操作 
 set wildmenu 
-
-" 在状态行上显示光标所在位置的行号和列号 
-"set ruler 
-"set rulerformat=%20(%2*%<%f%=\ %m%r\ %3l\ %c\ %p%%%) 
 
 " 命令行（在状态行下）的高度，默认为1，这里是2 
 set cmdheight=1 
@@ -171,24 +112,6 @@ set noerrorbells
 " 在被分割的窗口间显示空白，便于阅读 
 set fillchars=vert:\ ,stl:\ ,stlnc:\ 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-" 搜索和匹配 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-" 高亮显示匹配的括号 
-set showmatch 
-
-" 匹配括号高亮的时间（单位是十分之一秒） 
-set matchtime=5 
-
-" 在搜索的时候忽略大小写 
-set ignorecase 
-
-" 高亮被搜索的句子（phrases） 
-set hlsearch 
-
-" 在搜索时，输入的词句的逐字符高亮（类似firefox的搜索） 
-set incsearch 
-
 " 输入:set list命令是应该显示些啥？ 
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$ 
 
@@ -197,43 +120,6 @@ set scrolloff=3
 
 " 不要闪烁 
 set novisualbell 
-
-" 我的状态行显示的内容（包括文件类型和解码） 
-""set statusline=%F%m%r%h%w\[POS=%l,%v][%p%%]\%{strftime(\"%d/%m/%y\ -\ %H:%M\")} 
-
-" 总是显示状态行 
-set laststatus=2 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-" 文本格式和排版 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-" 自动格式化 
-set formatoptions=tcrqn 
-
-" 继承前一行的缩进方式，特别适用于多行注释 
-set autoindent 
-
-" 为C程序提供自动缩进 
-set smartindent 
-
-" 使用C样式的缩进 
-set cindent 
-
-" 制表符为4 
-set tabstop=4 
-
-" 统一缩进为4 
-set softtabstop=4 
-set shiftwidth=4 
-
-" 不要用空格代替制表符 
-set noexpandtab 
-
-" 不要换行 
-"set nowrap 
-
-" 在行和段开始处使用制表符 
-set smarttab 
 
 """""""""""""""""""""""""""
 "tagbar setting
@@ -282,7 +168,7 @@ autocmd BufEnter * lcd %:p:h
 
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 
-map <F12> :call Do_CsTag()<CR>
+map <F5> :call Do_CsTag()<CR>
 nmap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>:copen<CR>
 nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
 nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>:copen<CR>
@@ -330,101 +216,6 @@ function Do_CsTag()
     endif
 endfunction
 
-"omnicppcomplete配置
-"不在上方弹出预览窗口
-set completeopt=menu,menuone
-let OmniCpp_MayCompleteDot=1
-let OmniCpp_MayCompleteArrow=1
-let OmniCpp_MayCompleteScope=1
-let OmniCpp_SeletFirstItem=2
-let OmniCpp_NamespaceSearch=2
-let OmniCpp_ShowPrototypeInAddr=1
-let OmniCpp_GlobalScopeSearch=1
-let OmniCpp_DisplayMode=1
-let OmniCpp_DefaultNamespace=["std"]
-let OmniCpp_ShowScopeInAbbr=1
-let OmniCpp_ShowAccess=1
-
-"supertab插件
-let g:SuperTabDefaultCompletionType="context"
-
-"-----------------------------------------------------------------
-" plugin - NERD_tree.vim 以树状方式浏览系统中的文件和目录
-" :NERDtree 打开NERD_tree         :NERDtreeClose    关闭NERD_tree
-" o 打开关闭文件或者目录         t 在标签页中打开
-" T 在后台标签页中打开           ! 执行此文件
-" p 到上层目录                   P 到根目录
-" K 到第一个节点                 J 到最后一个节点
-" u 打开上层目录                 m 显示文件系统菜单（添加、删除、移动操作）
-" r 递归刷新当前目录             R 递归刷新当前根目录
-"-----------------------------------------------------------------
-" F7 NERDTree 切换
-""map <F7> :Sexplore!<CR>
-map <F8> :NERDTreeToggle<CR>
-imap <F8> <ESC> :Sexplore!<CR>
-let NERDChristmasTree=1     "另树状结构好看
-let NERDTreeShowBookmarks=1 "默认显示书签列表
-let NERDTreeShowFiles=1     "默认显示文件
-let NERDTreeShowHidden=1    "默认显示隐藏文件
-let NERDTreeWinPos="right"
-""""""""""""""""""""""""""""""
-" netrw setting
-" """"""""""""""""""""""""""""""
-" let g:netrw_winsize = 30
-" nmap <silent> <leader>fe :Sexplore!<cr> 
-
-"-----------------------------------------------------------------
-" plugin - NERD_commenter.vim 注释代码用的
-" [count]\cc 光标以下count行逐行添加注释(7,cc)
-" [count]\cu 光标以下count行逐行取消注释(7,cu)
-" [count]\cm 光标以下count行尝试添加块注释(7,cm)
-" \cA 在行尾插入 /* */,并且进入插入模式。 这个命令方便写注释
-" 注：count参数可选，无则默认为选中行或当前行
-"-----------------------------------------------------------------
-let NERDSpaceDelims=1       " 让注释符与语句之间留一个空格
-let NERDCompactSexyComs=1   " 多行注释时样子更好看
-let NERD_c_alt_style=1
-
-"miniBufExplor设置
-" let g:miniBufExplMapWindowNavVim=1
-" let g:miniBufExplMapWindowNavArrows=1
-" let g:miniBufExplMapCTabSwitchBufs=1
-noremap <C-Down>  <C-W>j
-noremap <C-Up>    <C-W>k
-noremap <C-Left>  <C-W>h
-noremap <C-Right> <C-W>l
-noremap <S-Right> :bn<CR>
-noremap <S-Left>  :bp<CR>
 
 
-
-"DoxygenToolkit设置
-"DoxAuthor 为文档的dox注释
-"Dox为单个文件的dox
-let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
-let g:DoxygenToolkit_paramTag_pre="@Param "
-let g:DoxygenToolkit_returnTag="@Returns   "
-let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
-let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------" 
-let g:DoxygenToolkit_authorName="Lin Gavin"
-let g:DoxygenToolkit_licenseTag="lingavin.com"
-
-"显示对齐线插件indent_guides
-"显示对齐线为,ch
-let g:indent_guides_guide_size=1
-map ,ch :call SetColorColumn()<CR>
-function! SetColorColumn()
-    let col_num = virtcol(".")
-    let cc_list = split(&cc, ',')
-    if count(cc_list, string(col_num)) <= 0
-        execute "set cc+=".col_num
-    else
-        execute "set cc-=".col_num
-    endif
-endfunction
-
-"Fuzzyfinder 快捷键
-nnoremap <leader>ff :FufFile<CR>
-nnoremap <leader>fb :FufBuffer<CR>
-nnoremap <leader>fd :FufDir<CR>
 

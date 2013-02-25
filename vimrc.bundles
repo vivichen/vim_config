@@ -32,11 +32,15 @@ Bundle 'Tagbar'
 Bundle 'FuzzyFinder'
 Bundle 'L9'
 Bundle 'loadtags'
-
-" original repos on github
-"Bundle 'FuzzyFinder'
-" non github repos
-"Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'minibufexpl.vim'
+Bundle 'a.vim'
+Bundle 'c.vim'
+Bundle 'autoload_cscope.vim'
+Bundle 'OmniCppComplete'
+"theme"
+Bundle 'molokai'
+Bundle 'Zenburn'
+Bundle 'eddsteel/vim-vimbrant'
 " ...
 
 filetype plugin indent on     " required!
