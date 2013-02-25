@@ -47,6 +47,12 @@ augroup filetype_cpp
 	autocmd FileType cpp :iabbrev <buffer> foor for ()<left>
 augroup EMD
  " }}}
+" markdown file settings ---------------------- {{{
+augroup filetype_markdown
+	autocmd!
+	autocmd FileType markdown nnoremap <leader>m :Voom markdown<CR> 
+augroup END
+" }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 

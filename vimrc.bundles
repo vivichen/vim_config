@@ -41,6 +41,7 @@ Bundle 'OmniCppComplete'
 Bundle 'molokai'
 Bundle 'Zenburn'
 Bundle 'eddsteel/vim-vimbrant'
+Bundle 'VOoM'
 " ...
 
 filetype plugin indent on     " required!

@@ -191,3 +191,5 @@ let g:DoxygenToolkit_licenseTag="amandachen@tencent.com"
 
 "-------------{{{
 "}}}
+map <F3> :Voom markdown<CR>
+map <F4> :VoomToggle<CR>
