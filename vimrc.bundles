@@ -42,6 +42,8 @@ Bundle 'molokai'
 Bundle 'Zenburn'
 Bundle 'eddsteel/vim-vimbrant'
 Bundle 'VOoM'
+Bundle 'youdao.dict'
+Bundle 'openurl.vim'
 " ...
 
 filetype plugin indent on     " required!

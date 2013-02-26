@@ -189,7 +189,10 @@ let g:DoxygenToolkit_authorName="amandachen"
 let g:DoxygenToolkit_licenseTag="amandachen@tencent.com"
 "}}}
 
-"-------------{{{
-"}}}
 map <F3> :Voom markdown<CR>
 map <F4> :VoomToggle<CR>
+command Open :call OpenUrl()
+command Lookup :call Youdao()
+
+"-------------{{{
+"}}}

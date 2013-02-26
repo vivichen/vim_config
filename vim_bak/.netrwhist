@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/air'
-let g:netrw_dirhist_2='/Users/air/Documents/projects/codevizcpp'
-let g:netrw_dirhist_3='/Users/air/Documents/projects/codevizcpp/web'
-let g:netrw_dirhist_4='/Users/air/Documents/projects/codevizcpp'
-let g:netrw_dirhist_5='/Users/air/Documents/projects/PAT'
