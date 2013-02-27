@@ -149,7 +149,12 @@ set novisualbell
 ""if you want to open it only if you're opening Vim with a supported file/files
 autocmd VimEnter * nested :call tagbar#autoopen(1)
 nmap <silent> <F7> :TagbarToggle<CR>
-let g:tagbar_ctags_bin = '/usr/bin/ctags'
+if has("win32")     
+    let g:tagbar_ctags_bin = "$VIM/vim73/ctags.exe"
+else   
+	let g:tagbar_ctags_bin = '/usr/bin/ctags'
+endif     
+
 let g:tagbar_width = 30
 let g:tagbar_left = 1
 """""""""""""""""""""""""""
