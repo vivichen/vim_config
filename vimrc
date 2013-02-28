@@ -74,10 +74,10 @@ let g:SuperTabDefaultCompletionType="context"
 "NERD_commenter注释-------------{{{
 "-----------------------------------------------------------------
 " plugin - NERD_commenter.vim 注释代码用的
-" [count]\cc 光标以下count行逐行添加注释(7,cc)
-" [count]\cu 光标以下count行逐行取消注释(7,cu)
-" [count]\cm 光标以下count行尝试添加块注释(7,cm)
-" \cA 在行尾插入 /* */,并且进入插入模式。 这个命令方便写注释
+" [count],cc 光标以下count行逐行添加注释(7,cc)
+" [count],cu 光标以下count行逐行取消注释(7,cu)
+" [count],cm 光标以下count行尝试添加块注释(7,cm)
+" ,cA 在行尾插入 /* */,并且进入插入模式。 这个命令方便写注释
 " 注：count参数可选，无则默认为选中行或当前行
 "-----------------------------------------------------------------
 let NERDSpaceDelims=1       " 让注释符与语句之间留一个空格
@@ -193,8 +193,6 @@ map <F3> :Voom markdown<CR>
 map <F4> :VoomToggle<CR>
 command Open :call OpenUrl()
 command Lookup :call Youdao()
-
-
 "增强容错性-------------{{{
 :command W w
 :command WQ wq
@@ -214,27 +212,49 @@ command Lookup :call Youdao()
 	set completeopt-=preview
 	"}}}
 	"python for windows-------------{{{
-	if MySys()=="win32"
-		autocmd BufRead *.py nmap <F5> :!python.exe %<CR>  
-		autocmd BufRead *.py nmap <F6> :make<CR>  
-		"autocmd BufRead *.py copen "如果是py文件，则同时打开编译信息窗口 
+	if has('win32')
+		autocmd BufRead *.py nmap <F9> :!python.exe %<CR>  
+		""autocmd BufRead *.py nmap <F6> :make<CR>  
+		""autocmd BufRead *.py copen "如果是py文件，则同时打开编译信息窗口 
+	else
+		"autocmd BufRead *.py nmap <F9> :!python %<CR>  
+		nmap <F10> :call RunPy()<cr> 
+
 	endif
 "}}}
+function! RunPy()
+	exec 'w'
+	exec '!python %'
+endfunction
+   
 "-------------{{{
 "}}}
-function! MySys()  
-    if has("win32")  
-        return "win32"  
-    elseif has("unix")  
-        return "unix"  
-    else  
-        return "mac"  
-    endif  
-endfunction  
-   
-"" if MySys() == "unix" || MySys() == "mac"  
-""     set shell=bash  
-"" else  
-""     " set win32 shell  
-"" endif 
  
+"GUI Settings -------------{{{
+    " GVIM- (here instead of .gvimrc)
+    if has('gui_running')
+        set guioptions-=T           " Remove the toolbar
+        set lines=40                " 40 lines of text instead of 24
+        if has("gui_gtk2")
+            set guifont=Andale\ Mono\ Regular\ 16,Menlo\ Regular\ 15,Consolas\ Regular\ 16,Courier\ New\ Regular\ 18
+			set guifontwide=Yahei_Mono:h11,SimHei:h11,Monaco:h12 
+			""set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11,DejaVu\ Sans\ Mono:h12,Menlo\ Regular\ for\ Powerline:h12,Monaco:h13 
+        else
+            set guifont=Andale\ Mono\ Regular:h16,Menlo\ Regular:h15,Consolas\ Regular:h16,Courier\ New\ Regular:h18
+        endif
+        if has('gui_macvim')
+            set transparency=5      " Make the window slightly transparent
+        endif
+    else
+        if &term == 'xterm' || &term == 'screen'
+            set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
+        endif
+        "set term=builtin_ansi       " Make arrow and other keys work
+    endif
+
+" }
+"}}}
+
+"问题"
+"1. gui vs 终端；windows vs mac 字体不统一
+"2. mac下一键执行python看不到执行结果
