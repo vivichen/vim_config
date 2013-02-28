@@ -196,3 +196,11 @@ command Lookup :call Youdao()
 
 "-------------{{{
 "}}}
+"增强容错性-------------{{{
+:command W w
+:command WQ wq
+:command Wq wq
+:command Q q
+:command Qa qa
+:command QA qa
+"}}}
