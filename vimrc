@@ -194,8 +194,7 @@ map <F4> :VoomToggle<CR>
 command Open :call OpenUrl()
 command Lookup :call Youdao()
 
-"-------------{{{
-"}}}
+
 "增强容错性-------------{{{
 :command W w
 :command WQ wq
@@ -204,3 +203,38 @@ command Lookup :call Youdao()
 :command Qa qa
 :command QA qa
 "}}}
+	"NeoComplCache补全-------------{{{
+	let g:neocomplcache_enable_at_startup=1
+	let g:neoComplcache_disableautocomplete=1
+	"let g:neocomplcache_enable_underbar_completion = 1
+	"let g:neocomplcache_enable_camel_case_completion = 1
+	let g:neocomplcache_enable_smart_case=1
+	let g:neocomplcache_min_syntax_length = 3
+	let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+	set completeopt-=preview
+	"}}}
+	"python for windows-------------{{{
+	if MySys()=="win32"
+		autocmd BufRead *.py nmap <F5> :!python.exe %<CR>  
+		autocmd BufRead *.py nmap <F6> :make<CR>  
+		"autocmd BufRead *.py copen "如果是py文件，则同时打开编译信息窗口 
+	endif
+"}}}
+"-------------{{{
+"}}}
+function! MySys()  
+    if has("win32")  
+        return "win32"  
+    elseif has("unix")  
+        return "unix"  
+    else  
+        return "mac"  
+    endif  
+endfunction  
+   
+"" if MySys() == "unix" || MySys() == "mac"  
+""     set shell=bash  
+"" else  
+""     " set win32 shell  
+"" endif 
+ 
