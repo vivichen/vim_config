@@ -202,6 +202,8 @@ command Lookup :call Youdao()
 :command QA qa
 "}}}
 	"NeoComplCache补全-------------{{{
+	let g:neocomplcache_enable_quick_match = 1 
+	inoremap <expr><space>  pumvisible() ? neocomplcache#close_popup() . "\<SPACE>" : "\<SPACE>"
 	let g:neocomplcache_enable_at_startup=1
 	let g:neoComplcache_disableautocomplete=1
 	"let g:neocomplcache_enable_underbar_completion = 1
@@ -261,7 +263,12 @@ endfunction
 
 " }
 "}}}
+"缩进线-------------{{{
+""set list
+"set listchars=tab:|
+"}}}
 
 "问题"
 "1. gui vs 终端；windows vs mac 字体不统一
 "2. mac下一键执行python看不到执行结果
+"3.缩进线

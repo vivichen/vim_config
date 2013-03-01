@@ -4,7 +4,10 @@
 " imap只在insert模式中生效，c-d 表示ctrl+d，ese使其退出到normal模式，
 " ddi表示删除一行后又回到insert模式
 inoremap <c-d> <esc>ddi
-"press space选中单词
+" 在行末加冒号，for python
+noremap  <M-;> $a:<esc>
+inoremap <M-;> <esc>$a:
+" press space选中单词
 nnoremap <leader><space> *
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 "why don't work
