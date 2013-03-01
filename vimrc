@@ -229,6 +229,12 @@ endfunction
    
 "-------------{{{
 "}}}
+"highlight current line-------------{{{
+"au WinLeave * set nocursorline nocursorcolumn
+"au WinEnter * set cursorline cursorcolumn
+"set cursorline cursorcolumn
+ set cursorline 
+"}}}
  
 "GUI Settings -------------{{{
     " GVIM- (here instead of .gvimrc)
@@ -236,11 +242,12 @@ endfunction
         set guioptions-=T           " Remove the toolbar
         set lines=40                " 40 lines of text instead of 24
         if has("gui_gtk2")
-            set guifont=Andale\ Mono\ Regular\ 16,Menlo\ Regular\ 15,Consolas\ Regular\ 16,Courier\ New\ Regular\ 18
+            ""set guifont=Andale\ Mono\ Regular\ 16,Menlo\ Regular\ 15,Consolas\ Regular\ 16,Courier\ New\ Regular\ 18
 			set guifontwide=Yahei_Mono:h11,SimHei:h11,Monaco:h12 
-			""set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11,DejaVu\ Sans\ Mono:h12,Menlo\ Regular\ for\ Powerline:h12,Monaco:h13 
+			set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11,DejaVu\ Sans\ Mono:h12,Menlo\ Regular\ for\ Powerline:h12,Monaco:h13 
         else
-            set guifont=Andale\ Mono\ Regular:h16,Menlo\ Regular:h15,Consolas\ Regular:h16,Courier\ New\ Regular:h18
+			set guifontwide=Yahei_Mono:h11,SimHei:h11,Monaco:h12 
+			set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11,DejaVu\ Sans\ Mono:h12,Menlo\ Regular\ for\ Powerline:h12,Monaco:h13 
         endif
         if has('gui_macvim')
             set transparency=5      " Make the window slightly transparent
