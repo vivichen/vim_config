@@ -43,7 +43,7 @@ augroup END
 "cpp file settings ---------------------- {{{
 augroup filetype_cpp 
 	autocmd!
-	autocmd BufWritePre,BufRead *.cpp,*.h,*.cc  :normal gg=G
+	" autocmd BufWritePre,BufRead *.cpp,*.h,*.cc  :normal gg=G
 	autocmd FileType cpp nnoremap <leader>c I//
 	autocmd FileType cpp :iabbrev <buffer> iff if ()<left>
 	autocmd FileType cpp :iabbrev <buffer> whii while ()<left>
