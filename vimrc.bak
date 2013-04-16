@@ -15,7 +15,8 @@ nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 nnoremap <leader>H ^
 nnoremap <leader>L $
 "why don't work 
-inoremap jk <esc>
+inoremap jk <esc>l
+inoremap jkl; <esc>f)a;
 " some operator-pending mappings
 "di' - Delete the word enclosed by single quotes.
 onoremap p i(

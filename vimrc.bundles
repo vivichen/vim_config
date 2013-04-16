@@ -44,6 +44,7 @@ Bundle 'eddsteel/vim-vimbrant'
 Bundle 'VOoM'
 Bundle 'youdao.dict'
 Bundle 'openurl.vim'
+Bundle 'uarun/vim-protobuf'
 " ...
 
 filetype plugin indent on     " required!
