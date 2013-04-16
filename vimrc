@@ -215,7 +215,7 @@ command Lookup :call Youdao()
 	"}}}
 	"python for windows-------------{{{
 	if has('win32')
-		autocmd BufRead *.py nmap <F9> :!python.exe %<CR>  
+		autocmd BufRead *.py nmap <F9> :!python.exe % req.txt<CR>  
 		""autocmd BufRead *.py nmap <F6> :make<CR>  
 		""autocmd BufRead *.py copen "如果是py文件，则同时打开编译信息窗口 
 	else
@@ -267,7 +267,8 @@ endfunction
 ""set list
 "set listchars=tab:|
 "}}}
-
+" 打开文件时，按照 viminfo 保存的上次关闭时的光标位置重新设置光标
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 "问题"
 "1. gui vs 终端；windows vs mac 字体不统一
 "2. mac下一键执行python看不到执行结果
