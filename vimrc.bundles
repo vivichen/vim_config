@@ -47,6 +47,7 @@ Bundle 'youdao.dict'
 Bundle 'openurl.vim'
 Bundle 'uarun/vim-protobuf'
 Bundle 'project.vim'
+Bundle 'DoxygenToolkit.vim'
 " ...
 
 filetype plugin indent on     " required!
