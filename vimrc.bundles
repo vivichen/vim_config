@@ -46,6 +46,7 @@ Bundle 'VOoM'
 Bundle 'youdao.dict'
 Bundle 'openurl.vim'
 Bundle 'uarun/vim-protobuf'
+Bundle 'project.vim'
 " ...
 
 filetype plugin indent on     " required!
