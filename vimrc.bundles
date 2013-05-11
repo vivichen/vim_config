@@ -37,6 +37,7 @@ Bundle 'a.vim'
 Bundle 'c.vim'
 Bundle 'autoload_cscope.vim'
 Bundle 'OmniCppComplete'
+Bundle "othree/xml.vim"
 "theme"
 Bundle 'molokai'
 Bundle 'Zenburn'

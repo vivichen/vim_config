@@ -5,8 +5,10 @@
 " ddi表示删除一行后又回到insert模式
 inoremap <c-d> <esc>ddi
 " 在行末加冒号，for python
-noremap  <M-;> $a:<esc>
-inoremap <M-;> <esc>$a:
+nnoremap ;; $a;
+inoremap ;; <esc>$a;
+nnoremap :: $a:
+inoremap :: <esc>$a:
 " press space选中单词
 nnoremap <leader><space> *
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
