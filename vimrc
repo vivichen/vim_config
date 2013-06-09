@@ -119,8 +119,8 @@ endfunction
 "}}}
 "主题颜色-------------{{{
 set t_Co=256
-colorscheme zenburn
-""colorscheme molokai
+""colorscheme zenburn
+colorscheme molokai
 ""colorscheme vimbrant
 "}}}
 " 通用排版----------------------{{{
@@ -245,11 +245,19 @@ endfunction
         set lines=40                " 40 lines of text instead of 24
         if has("gui_gtk2")
             ""set guifont=Andale\ Mono\ Regular\ 16,Menlo\ Regular\ 15,Consolas\ Regular\ 16,Courier\ New\ Regular\ 18
-			set guifontwide=Yahei_Mono:h11,SimHei:h11,Monaco:h12 
-			set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11,DejaVu\ Sans\ Mono:h12,Menlo\ Regular\ for\ Powerline:h12,Monaco:h13 
+			" set guifontwide=Yahei_Mono:h11,SimHei:h11,Source\ Code\ Pro\ Light:h14
+			" set guifontwide=Lantinghei\ Extralight:h12 
+			set guifontwide=Heiti\ SC\ Light:h14
+			""set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11,DejaVu\ Sans\ Mono:h12,Menlo\ Regular\ for\ Powerline:h12,Monaco:h13 
+			set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11,DejaVu\ Sans\ Mono:h12,Menlo\ Regular\ for\ Powerline:h12,Source\ Code\ Pro\ Light:h14
+
         else
-			set guifontwide=Yahei_Mono:h11,SimHei:h11,Monaco:h12 
-			set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11,DejaVu\ Sans\ Mono:h12,Menlo\ Regular\ for\ Powerline:h12,Monaco:h13 
+			" set guifontwide=Yahei_Mono:h11,SimHei:h11,Monaco:h12 
+			" set guifontwide=Yahei_Mono:h11,SimHei:h11,Source\ Code\ Pro\ Light:h14
+			" set guifontwide=Lantinghei\ Extralight:h12 
+			set guifontwide=Heiti\ SC\ Light:h14
+			" set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11,DejaVu\ Sans\ Mono:h12,Menlo\ Regular\ for\ Powerline:h12,Monaco:h13 
+			set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11,DejaVu\ Sans\ Mono:h12,Menlo\ Regular\ for\ Powerline:h12,Source\ Code\ Pro\ Light:h14
         endif
         if has('gui_macvim')
             set transparency=5      " Make the window slightly transparent
