@@ -163,6 +163,7 @@ endif
 
 let g:tagbar_width = 30
 let g:tagbar_left = 1
+let g:tagbar_sort = 0
 """""""""""""""""""""""""""
 "for ctags & cscope
 "0 或 s 查找本 C 符号(可以跳过注释)
